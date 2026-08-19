@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse interior design and wood works ideas — kitchens, wardrobes, TV units, bookshelves, pooja rooms and more by Shilpvatika.">
+  <title>Design Ideas | Shilpvatika — Interior Design Inspiration Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Shilpvatika home">
+        <img src="images/logo-shilpvatika.png" alt="Shilpvatika" style="height: 54px; width: auto; mix-blend-mode: multiply; margin-top: -6px;">
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul>
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="design-ideas.html" style="color:var(--clr-accent);font-weight:600;">Design Ideas</a></li>
+          <li><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li><a class="nav-link" href="index.html#reviews">Reviews</a></li>
+          <li><a class="nav-link" href="index.html#cities">Cities</a></li>
+          <li class="nav-dropdown">
+            <button class="nav-link" aria-haspopup="true" aria-expanded="false">
+              More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              <a href="index.html#about">About Us</a>
+              <a href="index.html#contact">Contact Us</a>
+              <a href="index.html#policies">Policies</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <a href="index.html#contact" class="header-cta">Get Free Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Inspiration Gallery</span>
+        <h1>Design Ideas for Your Home</h1>
+        <p>Browse our curated collection of carpentry and interior woodwork ideas. Get inspired for your next project — from modular kitchens to pooja rooms.</p>
+      </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Designs</button>
+      <button class="filter-btn" data-filter="kitchen">Kitchens</button>
+      <button class="filter-btn" data-filter="wardrobe">Wardrobes</button>
+      <button class="filter-btn" data-filter="tv-unit">TV Units</button>
+      <button class="filter-btn" data-filter="bookshelf">Bookshelves</button>
+      <button class="filter-btn" data-filter="pooja">Pooja Room</button>
+      <button class="filter-btn" data-filter="study">Study Tables</button>
+    </div>
+
+    <!-- IDEAS GRID -->
+    <section class="ideas-section">
+      <div class="container">
+        <div class="ideas-grid" id="ideas-grid">
+
+          <!-- Kitchen Ideas -->
+          <article class="idea-card" data-category="kitchen">
+            <div class="idea-thumb">
+              <img src="images/idea-kitchen.png" alt="Modern L-shaped modular kitchen with walnut and white cabinets" loading="lazy">
+              <span class="idea-category">Kitchen</span>
+            </div>
+            <div class="idea-body">
+              <h3>Modern L-Shaped Modular Kitchen</h3>
+              <p>Two-tone walnut and white cabinets with quartz countertop, under-cabinet LED lighting, and minimalist brass handles.</p>
+              <div class="idea-tags"><span class="idea-tag">Modular</span><span class="idea-tag">L-Shape</span><span class="idea-tag">Walnut</span></div>
+            </div>
+          </article>
+
+          <article class="idea-card" data-category="kitchen">
+            <div class="idea-thumb">
+              <img src="images/project-kitchen.png" alt="Traditional teak wood kitchen with granite counters" loading="lazy">
+              <span class="idea-category">Kitchen</span>
+            </div>
+            <div class="idea-body">
+              <h3>Classic Teak Wood Kitchen</h3>
+              <p>Rich teak cabinetry with traditional panel doors, black granite countertop, and antique-finish hardware for a timeless look.</p>
+              <div class="idea-tags"><span class="idea-tag">Traditional</span><span class="idea-tag">Teak</span><span class="idea-tag">Granite</span></div>
+            </div>
+          </article>
+
+          <!-- Wardrobe Ideas -->
+          <article class="idea-card" data-category="wardrobe">
+            <div class="idea-thumb">
+              <img src="images/idea-wardrobe.png" alt="Walk-in wardrobe with floor-to-ceiling wooden shelving" loading="lazy">
+              <span class="idea-category">Wardrobe</span>
+            </div>
+            <div class="idea-body">
+              <h3>Luxury Walk-In Wardrobe</h3>
+              <p>Floor-to-ceiling open shelving with glass-front drawers, integrated LED strips, and a dedicated dressing island.</p>
+              <div class="idea-tags"><span class="idea-tag">Walk-In</span><span class="idea-tag">LED Lighting</span><span class="idea-tag">Premium</span></div>
+            </div>
+          </article>
+
+          <article class="idea-card" data-category="wardrobe">
+            <div class="idea-thumb">
+              <img src="images/project-wardrobe.png" alt="Sliding door wardrobe with mirror panels" loading="lazy">
+              <span class="idea-category">Wardrobe</span>
+            </div>
+            <div class="idea-body">
+              <h3>Sliding Door Wardrobe with Mirrors</h3>
+              <p>Space-saving sliding mechanism with full-length mirror panels, internal organizers, and anti-slam soft-close tracks.</p>
+              <div class="idea-tags"><span class="idea-tag">Sliding</span><span class="idea-tag">Mirror</span><span class="idea-tag">Space-Saving</span></div>
+            </div>
+          </article>
+
+          <!-- TV Unit Ideas -->
+          <article class="idea-card" data-category="tv-unit">
+            <div class="idea-thumb">
+              <img src="images/idea-tvunit.png" alt="Floating TV unit with wooden back panel" loading="lazy">
+              <span class="idea-category">TV Unit</span>
+            </div>
+            <div class="idea-body">
+              <h3>Floating TV Unit with Back Panel</h3>
+              <p>Wall-mounted unit with wooden accent panel, hidden cable management, open shelving, and warm ambient backlighting.</p>
+              <div class="idea-tags"><span class="idea-tag">Floating</span><span class="idea-tag">LED Backlight</span><span class="idea-tag">Modern</span></div>
+            </div>
+          </article>
+
+          <article class="idea-card" data-category="tv-unit">
+            <div class="idea-thumb">
+              <img src="images/project-living.png" alt="Full wall TV unit with display shelves" loading="lazy">
+              <span class="idea-category">TV Unit</span>
+            </div>
+            <div class="idea-body">
+              <h3>Full-Wall Entertainment Centre</h3>
+              <p>Floor-to-ceiling oak TV unit with display niches, closed storage below, and accent panelling across the entire wall.</p>
+              <div class="idea-tags"><span class="idea-tag">Full-Wall</span><span class="idea-tag">Oak</span><span class="idea-tag">Display</span></div>
+            </div>
+          </article>
+
+          <!-- Bookshelf Ideas -->
+          <article class="idea-card" data-category="bookshelf">
+            <div class="idea-thumb">
+              <img src="images/idea-bookshelf.png" alt="Floor-to-ceiling wooden bookshelf" loading="lazy">
+              <span class="idea-category">Bookshelf</span>
+            </div>
+            <div class="idea-body">
+              <h3>Floor-to-Ceiling Library Wall</h3>
+              <p>Warm oak built-in bookshelf with a cozy reading nook, decorative display sections, and integrated spot lighting.</p>
+              <div class="idea-tags"><span class="idea-tag">Built-In</span><span class="idea-tag">Oak</span><span class="idea-tag">Reading Nook</span></div>
+            </div>
+          </article>
+
+          <!-- Pooja Room Ideas -->
+          <article class="idea-card" data-category="pooja">
+            <div class="idea-thumb">
+              <img src="images/idea-pooja.png" alt="Wooden pooja mandir with carved details" loading="lazy">
+              <span class="idea-category">Pooja Room</span>
+            </div>
+            <div class="idea-body">
+              <h3>Carved Wooden Pooja Mandir</h3>
+              <p>Traditional carved mandir with backlit panel, brass bell, marble shelf, designed to fit neatly into a wall niche.</p>
+              <div class="idea-tags"><span class="idea-tag">Traditional</span><span class="idea-tag">Carved</span><span class="idea-tag">Backlit</span></div>
+            </div>
+          </article>
+
+          <!-- Study Table Ideas -->
+          <article class="idea-card" data-category="study">
+            <div class="idea-thumb">
+              <img src="images/idea-study.png" alt="Modern study table with floating shelves" loading="lazy">
+              <span class="idea-category">Study Table</span>
+            </div>
+            <div class="idea-body">
+              <h3>Compact Study Desk with Shelving</h3>
+              <p>Space-efficient wooden desk with wall-mounted floating shelves, cable cutout, and integrated task lighting bracket.</p>
+              <div class="idea-tags"><span class="idea-tag">Compact</span><span class="idea-tag">Floating Shelf</span><span class="idea-tag">Modern</span></div>
+            </div>
+          </article>
+
+          <!-- Additional cards reusing images -->
+          <article class="idea-card" data-category="kitchen">
+            <div class="idea-thumb">
+              <img src="images/project-dining.png" alt="Dining area with custom wooden crockery unit" loading="lazy">
+              <span class="idea-category">Kitchen</span>
+            </div>
+            <div class="idea-body">
+              <h3>Crockery Unit & Dining Partition</h3>
+              <p>Dual-purpose wooden crockery display unit that doubles as a dining-kitchen partition with glass shelving and LED highlights.</p>
+              <div class="idea-tags"><span class="idea-tag">Crockery Unit</span><span class="idea-tag">Partition</span><span class="idea-tag">Glass</span></div>
+            </div>
+          </article>
+
+          <article class="idea-card" data-category="bookshelf">
+            <div class="idea-thumb">
+              <img src="images/project-office.png" alt="Home office bookshelves and desk" loading="lazy">
+              <span class="idea-category">Bookshelf</span>
+            </div>
+            <div class="idea-body">
+              <h3>Home Office Library Wall</h3>
+              <p>Integrated desk-and-bookshelf system designed for productivity — ergonomic workspace with ample storage above and beside.</p>
+              <div class="idea-tags"><span class="idea-tag">Office</span><span class="idea-tag">Integrated Desk</span><span class="idea-tag">Storage</span></div>
+            </div>
+          </article>
+
+          <article class="idea-card" data-category="wardrobe">
+            <div class="idea-thumb">
+              <img src="images/project-bedroom.png" alt="Bedroom wardrobe with matching headboard" loading="lazy">
+              <span class="idea-category">Wardrobe</span>
+            </div>
+            <div class="idea-body">
+              <h3>Bedroom Suite — Wardrobe & Headboard</h3>
+              <p>Coordinated bedroom woodwork — matching wardrobe, headboard, and side tables in the same rich walnut finish.</p>
+              <div class="idea-tags"><span class="idea-tag">Bedroom Suite</span><span class="idea-tag">Walnut</span><span class="idea-tag">Coordinated</span></div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="ideas-cta">
+          <p>Like what you see? Let's bring your favourite design to life.</p>
+          <a href="index.html#contact" class="btn btn-primary">Get Free Consultation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><img src="images/logo-shilpvatika.png" alt="Shilpvatika" style="height: 48px; width: auto;"></a>
+          <p>Interior design and custom wood works across Delhi, Haryana & Uttar Pradesh. Crafting excellence since 2000.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="design-ideas.html">Design Ideas</a><a href="index.html#projects">Projects</a><a href="index.html#reviews">Reviews</a><a href="index.html#cities">Cities</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="index.html#about">About Us</a><a href="index.html#contact">Contact Us</a><a href="index.html#policies">Policies</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+919876543210">+91 98765 43210</a>
+          <a href="mailto:hello@shilpvatika.com">hello@shilpvatika.com</a>
+          <a href="index.html#contact">Gurugram, Haryana</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2000–2026 Shilpvatika. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    }));
+
+    // Mobile "More" dropdown toggle
+    document.querySelectorAll('.nav-dropdown > .nav-link').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 700) {
+          e.preventDefault();
+          btn.closest('.nav-dropdown').classList.toggle('open');
+        }
+      });
+    });
+
+    // Header scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // Category filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.idea-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.filter;
+        cards.forEach(card => {
+          if (cat === 'all' || card.dataset.category === cat) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+[build]
+  command = "npm run build:all"
+  publish = "dist"
+
+[functions]
+  directory = "grainedge-quote/netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["@sparticuz/chromium-min"]
+
+# --- Redirects (order matters: specific first, catch-all last) ---
+
+# API routes → serverless functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Quote preview → serve-quote function (slug passed as query param)
+[[redirects]]
+  from = "/q/:slug"
+  to = "/.netlify/functions/serve-quote?slug=:slug"
+  status = 200
+
+# SPA catch-all — React Router handles all other routes
+# Netlify serves existing static files first, then falls back here
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

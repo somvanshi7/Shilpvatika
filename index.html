@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shilpvatika — Interior design & wood works across Delhi, Haryana & UP. Crafting excellence since 2000 with 1200+ sites delivered.">
+  <title>Shilpvatika | Interior Design & Wood Works</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="logo" aria-label="Shilpvatika home">
+        <img src="images/logo-shilpvatika.png" alt="Shilpvatika" style="height: 50px; width: auto; object-fit: contain;">
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul>
+          <li><a class="nav-link" href="#hero">Home</a></li>
+          <li><a class="nav-link" href="design-ideas.html">Design Ideas</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#reviews">Reviews</a></li>
+          <li><a class="nav-link" href="#cities">Cities</a></li>
+          <li class="nav-dropdown">
+            <button class="nav-link" aria-haspopup="true" aria-expanded="false">
+              More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              <a href="#about">About Us</a>
+              <a href="#contact">Contact Us</a>
+              <a href="#policies">Policies</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <a href="#contact" class="header-cta">Get Free Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SLIDESHOW -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero-slideshow" aria-hidden="true">
+        <div class="hero-slide active" style="background-image:url('images/hero-slide-1.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/hero-slide-2.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/hero-slide-3.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/hero-slide-4.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/hero-slide-5.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/hero-slide-6.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/hero-slide-7.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/hero-slide-8.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/hero-slide-9.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/hero-slide-10.png')"></div>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="hero-badge">Trusted Since 2000</span>
+          <h1>Crafting Excellence Since&nbsp;2000</h1>
+          <p class="hero-tagline">From bespoke furniture to full-scale interior woodwork — we bring warmth, precision, and artistry to every grain of wood across North India.</p>
+          <div class="hero-stats">
+            <div><div class="hero-stat-num" data-count="1200">1200+</div><div class="hero-stat-label">Sites Delivered</div></div>
+            <div><div class="hero-stat-num" data-count="25">25+</div><div class="hero-stat-label">Years Experience</div></div>
+            <div><div class="hero-stat-num" data-count="3">3</div><div class="hero-stat-label">States Served</div></div>
+          </div>
+          <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">View Our Work</a>
+            <a href="#contact" class="btn btn-outline-light">Book Free Consultation</a>
+          </div>
+        </div>
+        <div class="hero-form-card" id="hero-form-card">
+          <h3>Get Free Consultation</h3>
+          <p class="hero-form-sub">Book a free design session with our experts</p>
+          <form id="hero-form" name="hero-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="hero-contact">
+            <div class="hf-group"><label for="hf-name">Your Name</label><input type="text" id="hf-name" name="name" placeholder="e.g. Rajesh Kumar" required></div>
+            <div class="hf-group"><label for="hf-phone">Phone</label><input type="tel" id="hf-phone" name="phone" placeholder="+91 96951 69313" required></div>
+            <div class="hf-group"><label for="hf-email">Email</label><input type="email" id="hf-email" name="email" placeholder="you@example.com" required></div>
+            <div class="hf-group"><label for="hf-city">City</label>
+              <select id="hf-city" name="city" required><option value="">Select city</option><option>Delhi</option><option>Gurugram</option><option>Noida</option><option>Faridabad</option><option>Ghaziabad</option><option>Lucknow</option><option>Other</option></select>
+            </div>
+            <div class="hf-group hf-walkin-demo">
+              <label class="hf-checkbox-label" for="hf-walkin">
+                <input type="checkbox" id="hf-walkin" name="walkin-demo" value="yes">
+                <span class="hf-checkbox-custom"></span>
+                <span class="hf-checkbox-text">I'd like a walk-in demo of completed projects near my area <em class="hf-optional-tag">(Optional)</em></span>
+              </label>
+            </div>
+            <button type="submit" class="btn-hero-submit">Book Free Consultation</button>
+            <p class="hf-note">No spam. We'll contact you within 24 hours.</p>
+          </form>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+      <div class="trust-bar-inner container">
+        <div class="trust-item">
+          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span><strong>5-Year Warranty</strong> on all work</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <span><strong>1200+ Sites</strong> delivered</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <span><strong>On-time</strong> project delivery</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <span><strong>Dedicated</strong> project manager</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES GRID -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">What We Offer</span>
+          <h2 class="section-heading">End-to-End Interior Solutions</h2>
+          <p class="section-sub">Complete carpentry and interior woodwork services for every room in your home.</p>
+        </div>
+        <div class="services-grid">
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg></div><h3>Modular Kitchen</h3></a>
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div><h3>Wardrobes &amp; Storage</h3></a>
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg></div><h3>TV Units</h3></a>
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><h3>Bookshelves</h3></a>
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h3>Pooja Room</h3></a>
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>Study Tables</h3></a>
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Home Office</h3></a>
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.5 5.5l13 13M18.5 5.5l-13 13"/></svg></div><h3>False Ceiling</h3></a>
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div><h3>Wall Panelling</h3></a>
+          <a class="service-card reveal" href="design-ideas.html"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Crockery Units</h3></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN CAROUSELS -->
+    <section class="design-explore" id="design-explore">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Inspiration</span>
+          <h2 class="section-heading">Explore Our Designs</h2>
+          <p class="section-sub">Browse design ideas by room — scroll through our curated collections.</p>
+        </div>
+        <div class="carousel-section reveal">
+          <div class="carousel-header"><h3>Kitchen Designs</h3><a href="design-ideas.html">See All →</a></div>
+          <div class="carousel-track">
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/idea-kitchen.png" alt="Modern modular kitchen" loading="lazy"></div><div class="carousel-card-body"><h4>Modern L-Shaped Kitchen</h4><p>Walnut &amp; white cabinets with quartz countertop</p></div></div>
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/project-kitchen.png" alt="Classic teak kitchen" loading="lazy"></div><div class="carousel-card-body"><h4>Classic Teak Kitchen</h4><p>Rich teak cabinetry with granite countertop</p></div></div>
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/project-dining.png" alt="Crockery unit" loading="lazy"></div><div class="carousel-card-body"><h4>Crockery &amp; Dining Unit</h4><p>Glass shelving with LED highlights</p></div></div>
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/hero-slide-1.png" alt="Premium kitchen" loading="lazy"></div><div class="carousel-card-body"><h4>Premium Island Kitchen</h4><p>Spacious island layout with premium fittings</p></div></div>
+          </div>
+        </div>
+        <div class="carousel-section reveal">
+          <div class="carousel-header"><h3>Wardrobe Designs</h3><a href="design-ideas.html">See All →</a></div>
+          <div class="carousel-track">
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/idea-wardrobe.png" alt="Walk-in wardrobe" loading="lazy"></div><div class="carousel-card-body"><h4>Luxury Walk-In Wardrobe</h4><p>Floor-to-ceiling with LED strips</p></div></div>
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/project-wardrobe.png" alt="Sliding wardrobe" loading="lazy"></div><div class="carousel-card-body"><h4>Sliding Door Wardrobe</h4><p>Mirror panels with soft-close tracks</p></div></div>
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/project-bedroom.png" alt="Bedroom suite" loading="lazy"></div><div class="carousel-card-body"><h4>Bedroom Suite</h4><p>Coordinated wardrobe &amp; headboard</p></div></div>
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/hero-slide-2.png" alt="Custom wardrobe" loading="lazy"></div><div class="carousel-card-body"><h4>Custom Built-In Wardrobe</h4><p>Tailored to your space perfectly</p></div></div>
+          </div>
+        </div>
+        <div class="carousel-section reveal">
+          <div class="carousel-header"><h3>Living Room Designs</h3><a href="design-ideas.html">See All →</a></div>
+          <div class="carousel-track">
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/idea-tvunit.png" alt="Floating TV unit" loading="lazy"></div><div class="carousel-card-body"><h4>Floating TV Unit</h4><p>Wooden accent panel with LED backlight</p></div></div>
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/project-living.png" alt="Full wall unit" loading="lazy"></div><div class="carousel-card-body"><h4>Full-Wall Entertainment Centre</h4><p>Oak TV unit with display niches</p></div></div>
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/idea-bookshelf.png" alt="Library wall" loading="lazy"></div><div class="carousel-card-body"><h4>Library Wall</h4><p>Built-in bookshelf with reading nook</p></div></div>
+            <div class="carousel-card"><div class="carousel-card-thumb"><img src="images/hero-slide-3.png" alt="Living room" loading="lazy"></div><div class="carousel-card-body"><h4>Accent Wall Panelling</h4><p>Premium wooden panel feature wall</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Portfolio</span>
+          <h2 class="section-heading">Our Delivered Projects</h2>
+          <p class="section-sub">Explore our finest work — each project designed, crafted, and installed with meticulous attention to detail.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card reveal" id="project-kitchen">
+            <div class="project-thumb">
+              <img src="images/project-kitchen.png" alt="Modern modular kitchen with warm wood cabinets" loading="lazy">
+              <span class="project-tag">Kitchen</span>
+            </div>
+            <div class="project-info">
+              <h3>Modular Kitchen — Sector 45, Gurugram</h3>
+              <p>Full teak-wood modular kitchen with soft-close fittings, granite counters, and brass hardware.</p>
+              <div class="project-meta"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Haryana</div>
+            </div>
+          </article>
+          <article class="project-card reveal" id="project-bedroom">
+            <div class="project-thumb">
+              <img src="images/project-bedroom.png" alt="Luxury bedroom with custom wooden wardrobe" loading="lazy">
+              <span class="project-tag">Bedroom</span>
+            </div>
+            <div class="project-info">
+              <h3>Master Bedroom — Dwarka, Delhi</h3>
+              <p>Custom walnut wardrobe with sliding doors, wooden headboard, and bedside cabinets.</p>
+              <div class="project-meta"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Delhi</div>
+            </div>
+          </article>
+          <article class="project-card reveal" id="project-living">
+            <div class="project-thumb">
+              <img src="images/project-living.png" alt="Modern living room with custom TV unit" loading="lazy">
+              <span class="project-tag">Living Room</span>
+            </div>
+            <div class="project-info">
+              <h3>Living Room — Noida Extension</h3>
+              <p>Custom oak TV unit with floating shelves, accent panelling, and integrated LED lighting.</p>
+              <div class="project-meta"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Uttar Pradesh</div>
+            </div>
+          </article>
+          <article class="project-card reveal" id="project-wardrobe">
+            <div class="project-thumb">
+              <img src="images/project-wardrobe.png" alt="Built-in wardrobe with sliding doors" loading="lazy">
+              <span class="project-tag">Wardrobe</span>
+            </div>
+            <div class="project-info">
+              <h3>Walk-in Wardrobe — Faridabad</h3>
+              <p>Floor-to-ceiling walnut wardrobe with internal organizers and mirror panels.</p>
+              <div class="project-meta"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Haryana</div>
+            </div>
+          </article>
+          <article class="project-card reveal" id="project-office">
+            <div class="project-thumb">
+              <img src="images/project-office.png" alt="Home office with custom desk and shelving" loading="lazy">
+              <span class="project-tag">Office</span>
+            </div>
+            <div class="project-info">
+              <h3>Home Office — Vasant Kunj, Delhi</h3>
+              <p>Ergonomic desk setup with floor-to-ceiling bookshelves and cable management system.</p>
+              <div class="project-meta"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Delhi</div>
+            </div>
+          </article>
+          <article class="project-card reveal" id="project-dining">
+            <div class="project-thumb">
+              <img src="images/project-dining.png" alt="Custom dining table in modern room" loading="lazy">
+              <span class="project-tag">Dining</span>
+            </div>
+            <div class="project-info">
+              <h3>Dining Set — Lucknow</h3>
+              <p>Solid teak 8-seater dining table with upholstered chairs and matching crockery unit.</p>
+              <div class="project-meta"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Uttar Pradesh</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CITIES -->
+    <section class="cities" id="cities">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Our Presence</span>
+          <h2 class="section-heading">Cities We Work In</h2>
+          <p class="section-sub">Proudly serving homeowners across three states in North India with premium carpentry solutions.</p>
+        </div>
+        <div class="cities-grid">
+          <div class="city-card reveal">
+            <div class="city-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg></div>
+            <h3>Delhi NCR</h3>
+            <p>Dwarka, Vasant Kunj, Rohini, Saket, Janakpuri & more across the capital region.</p>
+          </div>
+          <div class="city-card reveal">
+            <div class="city-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg></div>
+            <h3>Haryana</h3>
+            <p>Gurugram, Faridabad, Sonipat, Panipat, Karnal & neighbouring cities.</p>
+          </div>
+          <div class="city-card reveal">
+            <div class="city-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg></div>
+            <h3>Uttar Pradesh</h3>
+            <p>Noida, Greater Noida, Ghaziabad, Lucknow, Agra & other major cities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Process</span>
+          <h2 class="section-heading">From Design to Move-In</h2>
+          <p class="section-sub">A simple, transparent 6-step journey from first call to handover.</p>
+        </div>
+        <div class="timeline-grid reveal">
+          <div class="timeline-step"><div class="timeline-num">1</div><h3>Free Consultation</h3><p>We visit your space and understand your vision and budget.</p></div>
+          <div class="timeline-step"><div class="timeline-num">2</div><h3>3D Design</h3><p>Personalised 3D designs with transparent cost breakdown.</p></div>
+          <div class="timeline-step"><div class="timeline-num">3</div><h3>Approve</h3><p>Finalise designs, sign agreement, pay booking advance.</p></div>
+          <div class="timeline-step"><div class="timeline-num">4</div><h3>Crafting</h3><p>Master carpenters handcraft every piece with premium wood.</p></div>
+          <div class="timeline-step"><div class="timeline-num">5</div><h3>Install</h3><p>Professional installation with rigorous quality checks.</p></div>
+          <div class="timeline-step"><div class="timeline-num">6</div><h3>Handover</h3><p>Move in and enjoy, backed by our 5-year warranty.</p></div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Testimonials</span>
+          <h2 class="section-heading">What Our Clients Say</h2>
+          <p class="section-sub">Real stories from homeowners who trust Shilpvatika with their dream spaces.</p>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card reveal" id="review-1">
+            <div class="review-header">
+              <div class="review-avatar">RK</div>
+              <div><div class="review-name">Rajesh Kumar</div><div class="review-role">Homeowner, Gurugram</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">The modular kitchen they designed for us is stunning. Every detail — from soft-close drawers to the granite countertop — is impeccable. Delivered on time and within budget.</p>
+          </div>
+          <div class="review-card reveal" id="review-2">
+            <div class="review-header">
+              <div class="review-avatar">PS</div>
+              <div><div class="review-name">Priya Sharma</div><div class="review-role">Interior Designer, Delhi</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">I've recommended Shilpvatika to over 20 clients. Their craftsmanship is consistently top-notch and they handle site coordination professionally.</p>
+          </div>
+          <div class="review-card reveal" id="review-3">
+            <div class="review-header">
+              <div class="review-avatar">AV</div>
+              <div><div class="review-name">Amit Verma</div><div class="review-role">Homeowner, Noida</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">From wardrobes to the complete living room — everything was done beautifully. The team was courteous, punctual, and the 5-year warranty gives great peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Questions?</span>
+          <h2 class="section-heading">Frequently Asked Questions</h2>
+          <p class="section-sub">Everything you need to know about our interior woodwork services.</p>
+        </div>
+        <div class="faq-grid reveal">
+          <div class="faq-item">
+            <button class="faq-question">How do I get started with a project? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="faq-answer"><div class="faq-answer-inner">It starts with a free consultation! You can book online or call us. We'll discuss your requirements, measure your space, and provide initial design ideas and a rough estimate.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What is your typical project timeline? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Most standard residential projects (like a modular kitchen or wardrobes) take 4–6 weeks from design approval to final installation. Larger, full-home interiors may take 8–12 weeks.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What materials do you use? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="faq-answer"><div class="faq-answer-inner">We use only premium, sustainably sourced materials, including BWP grade plywood, HDHMR boards, solid teak wood, and high-quality laminates/veneers. All hardware is from trusted brands like Hettich and Blum.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What does your 5-year warranty cover? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Our warranty covers all manufacturing defects, hardware malfunctions (like loose hinges or stuck channels), and material issues like unexpected delamination. It does not cover general wear and tear or water damage from plumbing leaks.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you charge for the 3D design? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Initial design concepts are free. If you'd like detailed 3D renders before booking, we charge a nominal fee which is 100% adjusted against your final bill if you choose to proceed with us.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-image reveal">
+          <img src="images/workshop.png" alt="Inside our carpentry workshop — tools, workbench, and handcrafted furniture" loading="lazy">
+        </div>
+        <div class="about-text reveal">
+          <span class="section-label">About Us</span>
+          <h2>A Quarter Century of Master Craftsmanship</h2>
+          <p>Founded in 2000, Shilpvatika has grown from a small family workshop into a trusted name in interior design and custom woodworking across Delhi NCR, Haryana, and Uttar Pradesh.</p>
+          <p>Every project begins with sustainably sourced hardwoods and ends with a hand-rubbed finish. Our team of expert artisans brings a combined 120+ years of experience, treating each commission with meticulous care and dedication.</p>
+          <div class="about-stats">
+            <div class="about-stat"><div class="about-stat-num">25+</div><div class="about-stat-label">Years</div></div>
+            <div class="about-stat"><div class="about-stat-num">1200+</div><div class="about-stat-label">Sites</div></div>
+            <div class="about-stat"><div class="about-stat-num">100%</div><div class="about-stat-label">Handcrafted</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="container">
+        <h2>Ready to Transform Your Space?</h2>
+        <p>Book a free consultation today and let our experts design your dream home interiors.</p>
+        <a href="#contact" class="btn btn-white">Get Free Consultation</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <span class="section-label">Get in Touch</span>
+          <h2>Let's Build Something Beautiful</h2>
+          <p>Have a project in mind? Drop us a message and we'll get back to you within one business day with a free consultation.</p>
+          <div class="contact-detail">
+            <div class="contact-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h4>Workshop</h4><span>Sector 88, Near RPS Auria, Faridabad, Haryana, 121002</span></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon-wrap"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.15 13 19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.05 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.87a16 16 0 0 0 6.04 6.04l1.23-1.21a2 2 0 0 1 2.11-.45c1.21.34 2 .57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><h4>Phone</h4><span>+91 96951 69313</span></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon-wrap"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><h4>Email</h4><span>support@shilpvatika.com</span></div>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Contact form">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="visually-hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+          <div class="form-row">
+            <div class="form-group"><label for="form-name">Your Name</label><input type="text" id="form-name" name="name" placeholder="e.g. Rajesh Kumar" required></div>
+            <div class="form-group"><label for="form-phone">Phone</label><input type="tel" id="form-phone" name="phone" placeholder="+91 96951 69313" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="form-email">Email</label><input type="email" id="form-email" name="email" placeholder="you@example.com" required></div>
+            <div class="form-group"><label for="form-city">City</label>
+              <select id="form-city" name="city" required>
+                <option value="">Select city</option>
+                <option>Delhi</option><option>Gurugram</option><option>Noida</option>
+                <option>Faridabad</option><option>Ghaziabad</option><option>Lucknow</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label for="form-message">Project Details</label><textarea id="form-message" name="message" placeholder="Tell us about your project — rooms, budget, timeline…" required></textarea></div>
+          <div class="form-group walkin-demo-group">
+            <label class="walkin-checkbox-label" for="form-walkin">
+              <input type="checkbox" id="form-walkin" name="walkin-demo" value="yes">
+              <span class="walkin-checkbox-custom"></span>
+              <span class="walkin-checkbox-text">I'd like a walk-in demo of completed projects near my area <em class="walkin-optional-tag">(Optional)</em></span>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+        </form>
+        <div class="form-success" id="form-success" hidden>
+          <div class="form-success-icon">✓</div>
+          <h3>Thank You!</h3>
+          <p>Your message has been sent successfully. We'll get back to you within 1 business day.</p>
+          <button class="btn btn-primary" id="form-reset-btn">Send Another Message</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICIES -->
+    <section class="policies" id="policies">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Our Promise</span>
+          <h2 class="section-heading">Policies & Guarantees</h2>
+          <p class="section-sub">Transparency and trust are at the core of everything we do.</p>
+        </div>
+        <div class="policies-grid">
+          <div class="policy-card reveal">
+            <div class="policy-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3>5-Year Warranty</h3>
+            <p>All our woodwork comes with a comprehensive 5-year warranty covering material and workmanship defects.</p>
+          </div>
+          <div class="policy-card reveal">
+            <div class="policy-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+            <h3>Transparent Pricing</h3>
+            <p>No hidden charges. Receive a detailed cost breakdown before work begins with milestone-based payments.</p>
+          </div>
+          <div class="policy-card reveal">
+            <div class="policy-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <h3>On-Time Delivery</h3>
+            <p>We commit to project timelines in writing. Delays on our end entitle you to compensation as per agreement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTTOM TRUST STRIP -->
+  <section class="bottom-trust">
+    <div class="container bottom-trust-grid reveal">
+      <div class="bt-item">
+        <div class="bt-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="bt-num">5 Years</div><div class="bt-label">Material Warranty</div>
+      </div>
+      <div class="bt-item">
+        <div class="bt-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="bt-num">45 Days</div><div class="bt-label">On-Time Delivery</div>
+      </div>
+      <div class="bt-item">
+        <div class="bt-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="bt-num">25+</div><div class="bt-label">Expert Craftsmen</div>
+      </div>
+      <div class="bt-item">
+        <div class="bt-icon"><svg viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div>
+        <div class="bt-num">100%</div><div class="bt-label">Client Satisfaction</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="logo"><img src="images/logo-shilpvatika.png" alt="Shilpvatika" style="height: 64px; width: auto; margin-bottom: 0.5rem; display: block;"></a>
+          <p>Interior design and custom wood works across Delhi, Haryana & Uttar Pradesh. Crafting excellence since 2000.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="design-ideas.html">Design Ideas</a><a href="#projects">Projects</a><a href="#reviews">Reviews</a><a href="#cities">Cities</a><a href="#how-it-works">How It Works</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#about">About Us</a><a href="#contact">Contact Us</a><a href="#policies">Policies</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+919695169313">+91 96951 69313</a>
+          <a href="mailto:support@shilpvatika.com">support@shilpvatika.com</a>
+          <a href="#contact">Faridabad, Haryana</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2000–2026 Shilpvatika. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY ELEMENTS -->
+  <div class="sticky-cta" id="sticky-cta"><a href="#contact" class="btn btn-primary">Book Free Consultation</a></div>
+  <a href="https://wa.me/919876543210" class="whatsapp-fab" aria-label="Chat on WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12.01 2.01c-5.51 0-9.99 4.49-9.99 10 0 1.77.46 3.44 1.28 4.9L2 22l5.24-1.29a9.96 9.96 0 0 0 4.77 1.21c5.51 0 9.99-4.48 9.99-9.99 0-5.51-4.48-10-10-10zm0 18.33c-1.5 0-2.96-.38-4.27-1.12l-.31-.18-3.17.78.84-3.08-.2-.31a8.3 8.3 0 0 1-1.22-4.42c0-4.61 3.75-8.36 8.36-8.36 4.6 0 8.36 3.75 8.36 8.36 0 4.61-3.75 8.36-8.36 8.36zm4.58-6.26c-.25-.13-1.49-.74-1.72-.82-.23-.08-.4-.13-.57.13-.17.25-.65.82-.79 1-.15.17-.3.19-.55.06-1.18-.58-2.31-1.39-3.26-2.33-.52-.51-1.02-1.09-1.47-1.71-.11-.16-.01-.25.12-.37.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.38-.79-1.89-.21-.49-.42-.42-.57-.43h-.48c-.17 0-.45.06-.69.32-.23.25-.89.87-.89 2.12s.91 2.47 1.04 2.64c.13.17 1.8 2.75 4.36 3.82.61.26 1.08.41 1.45.53.61.19 1.16.16 1.6.1.48-.06 1.49-.61 1.7-1.2.21-.59.21-1.1.15-1.2-.06-.1-.23-.15-.48-.28z"/></svg></a>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+  <script>
+    // Mobile nav
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    }));
+
+    // Mobile "More" dropdown toggle
+    document.querySelectorAll('.nav-dropdown > .nav-link').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 700) {
+          e.preventDefault();
+          btn.closest('.nav-dropdown').classList.toggle('open');
+        }
+      });
+    });
+
+    // Header scroll shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // Reveal on scroll + animated counters
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('visible'); 
+          // Animate counters if present
+          if (e.target.classList.contains('hero-stats') || e.target.classList.contains('about-stats')) {
+            e.target.querySelectorAll('.hero-stat-num, .about-stat-num').forEach(el => {
+              const target = parseInt(el.getAttribute('data-count') || el.innerText);
+              if(!target) return;
+              let current = 0;
+              const incr = target / 30;
+              const interval = setInterval(() => {
+                current += incr;
+                if(current >= target) { el.innerText = target + (el.innerText.includes('+') ? '+' : ''); clearInterval(interval); }
+                else el.innerText = Math.floor(current) + (el.innerText.includes('+') ? '+' : '');
+              }, 40);
+            });
+          }
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .hero-stats, .about-stats').forEach(el => observer.observe(el));
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.faq-answer').style.maxHeight = null;
+          i.querySelector('.faq-answer').style.padding = null;
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          const answer = item.querySelector('.faq-answer');
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+      });
+    });
+
+    // Back to top & Sticky CTA visibility
+    const backToTop = document.getElementById('back-to-top');
+    const stickyCta = document.getElementById('sticky-cta');
+    const heroSection = document.querySelector('.hero');
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      if(backToTop) backToTop.classList.toggle('visible', scrollPos > 600);
+      if(stickyCta && heroSection) stickyCta.classList.toggle('visible', scrollPos > heroSection.offsetHeight && window.innerWidth <= 700);
+    });
+    if(backToTop) backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Hero slideshow
+    (() => {
+      const slides = document.querySelectorAll('.hero-slide');
+      let current = 0;
+      let timer;
+      function goTo(idx) {
+        slides[current].classList.remove('active');
+        current = idx % slides.length;
+        slides[current].classList.add('active');
+      }
+      function next() { goTo(current + 1); }
+      function startTimer() { timer = setInterval(next, 4000); }
+      startTimer();
+    })();
+
+    // Form submission to Supabase
+    (() => {
+      const SUPABASE_URL = 'https://kahivokugtlkqdikznuy.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthaGl2b2t1Z3Rsa3FkaWt6bnV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwMjk5MjMsImV4cCI6MjEwMjYwNTkyM30.n5PGYU08caotKuZPRB2iFoJ13X_qItuC9kYQFNnxhnU';
+
+      async function submitToSupabase(formData) {
+        const payload = {
+          name: formData.get('name') || '',
+          phone: formData.get('phone') || '',
+          email: formData.get('email') || '',
+          city: formData.get('city') || '',
+          message: formData.get('message') || '',
+          walkin_demo: formData.get('walkin-demo') === 'yes'
+        };
+
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) throw new Error('Failed to submit');
+      }
+
+      // Main Contact Form
+      const mainForm = document.getElementById('contact-form');
+      const mainSuccess = document.getElementById('form-success');
+      const mainResetBtn = document.getElementById('form-reset-btn');
+      
+      if (mainForm) {
+        mainForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = mainForm.querySelector('button[type="submit"]');
+          const originalText = btn.innerText;
+          btn.innerText = 'Sending...';
+          btn.disabled = true;
+          
+          try {
+            await submitToSupabase(new FormData(mainForm));
+            mainForm.hidden = true;
+            mainSuccess.hidden = false;
+          } catch (err) {
+            alert('Something went wrong. Please try again.');
+          } finally {
+            btn.innerText = originalText;
+            btn.disabled = false;
+          }
+        });
+
+        if (mainResetBtn) {
+          mainResetBtn.addEventListener('click', () => {
+            mainForm.reset();
+            mainForm.hidden = false;
+            mainSuccess.hidden = true;
+          });
+        }
+      }
+
+      // Hero Form
+      const heroForm = document.getElementById('hero-form');
+      if (heroForm) {
+        heroForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = heroForm.querySelector('button[type="submit"]');
+          const originalText = btn.innerText;
+          btn.innerText = 'Sending...';
+          btn.disabled = true;
+          
+          try {
+            await submitToSupabase(new FormData(heroForm));
+            heroForm.innerHTML = '<div style="text-align:center; padding: 2rem 0;"><h3 style="color:var(--success-600); margin-bottom:0.5rem;">Thank You!</h3><p>We will contact you shortly.</p></div>';
+          } catch (err) {
+            alert('Something went wrong. Please try again.');
+            btn.innerText = originalText;
+            btn.disabled = false;
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
