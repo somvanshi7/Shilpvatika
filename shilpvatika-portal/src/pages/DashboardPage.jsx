@@ -7,6 +7,7 @@ export default function DashboardPage() {
     todaysPresent: 0,
     activeQuotes: 0,
     unpaidInvoices: 0,
+    newLeads: 0,
   });
   const [loading, setLoading] = useState(true);
 
@@ -41,11 +42,18 @@ export default function DashboardPage() {
           .select('*', { count: 'exact', head: true })
           .in('payment_status', ['Unpaid', 'Partial']);
 
+        // 5. New Leads
+        const { count: newLeads } = await supabase
+          .from('contact_messages')
+          .select('*', { count: 'exact', head: true })
+          .eq('status', 'New');
+
         setStats({
           activeEmployees: activeEmployees || 0,
           todaysPresent: todaysPresent || 0,
           activeQuotes: activeQuotes || 0,
           unpaidInvoices: unpaidInvoices || 0,
+          newLeads: newLeads || 0,
         });
       } catch (err) {
         console.error('Error fetching dashboard stats:', err);
@@ -104,6 +112,15 @@ export default function DashboardPage() {
             <div className="stat-info">
               <span className="stat-label">Unpaid Invoices</span>
               <span className="stat-value">{stats.unpaidInvoices}</span>
+            </div>
+          </div>
+          <div className="stat-card" style={{ cursor: 'pointer' }} onClick={() => window.location.href = '/leads'}>
+            <div className="stat-icon" style={{ background: '#fef3c7', color: '#92400e' }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+            </div>
+            <div className="stat-info">
+              <span className="stat-label">New Leads</span>
+              <span className="stat-value">{stats.newLeads}</span>
             </div>
           </div>
         </div>

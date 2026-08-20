@@ -12,6 +12,7 @@ import SettingsPage from './pages/SettingsPage';
 import AuditLogPage from './pages/AuditLogPage';
 import QuotationsPage from './pages/QuotationsPage';
 import BillingPage from './pages/BillingPage';
+import LeadsPage from './pages/LeadsPage';
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, loading } = useAuth();
@@ -76,6 +77,7 @@ function AppRoutes() {
         <Route path="/ems/statement" element={<StatementPage />} />
         <Route path="/quotations" element={<QuotationsPage />} />
         <Route path="/billing" element={<BillingPage />} />
+        <Route path="/leads" element={<LeadsPage />} />
         <Route path="/audit" element={<AuditLogPage />} />
         <Route path="/settings" element={<SettingsPage />} />
       </Route>

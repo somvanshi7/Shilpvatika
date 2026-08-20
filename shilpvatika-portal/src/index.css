@@ -719,3 +719,22 @@ input, select, textarea {
     padding: 2rem 1.5rem;
   }
 }
+
+/* ---- Leads Page Responsive ---- */
+.leads-table-wrapper {
+  overflow-x: auto;
+}
+
+.leads-mobile-cards {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .leads-table-wrapper {
+    display: none;
+  }
+
+  .leads-mobile-cards {
+    display: block;
+  }
+}
