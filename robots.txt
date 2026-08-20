@@ -1,0 +1,7 @@
+# Shilpvatika — robots.txt
+User-agent: *
+Allow: /
+Disallow: /shilpvatika-portal/
+Disallow: /grainedge-quote/
+
+Sitemap: https://www.shilpvatika.com/sitemap.xml
