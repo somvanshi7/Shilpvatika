@@ -10,6 +10,7 @@ export default function BillingPage() {
   const [currentInvoice, setCurrentInvoice] = useState(null);
   const [settings, setSettings] = useState({});
   const [saving, setSaving] = useState(false);
+  const [invoicePayments, setInvoicePayments] = useState([]);
   
   const [paymentForm, setPaymentForm] = useState({ amount: '', method: 'Cash', bank_transaction_id: '', cheque_number: '', notes: '' });
   
@@ -157,6 +158,22 @@ export default function BillingPage() {
       alert('Failed to save invoice');
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function handleViewInvoice(inv) {
+    setCurrentInvoice(inv);
+    setViewState('view');
+    try {
+      const { data, error } = await supabase
+        .from('payments')
+        .select('*')
+        .eq('invoice_id', inv.id)
+        .order('created_at', { ascending: true });
+      if (error) throw error;
+      setInvoicePayments(data || []);
+    } catch (err) {
+      console.error('Error fetching payments:', err);
     }
   }
 
@@ -542,6 +559,37 @@ export default function BillingPage() {
             </div>
           </div>
 
+          {invoicePayments && invoicePayments.length > 0 && (
+            <div style={{ marginTop: '3rem', borderTop: '2px dashed var(--gray-200)', paddingTop: '2rem' }}>
+              <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--gray-900)', marginBottom: '1rem' }}>Payment History</h4>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.875rem' }}>
+                <thead style={{ background: 'var(--gray-50)', color: 'var(--gray-600)' }}>
+                  <tr>
+                    <th style={{ padding: '0.75rem 1rem' }}>Date</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Receipt #</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Method</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Notes / Ref</th>
+                    <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Amount (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {invoicePayments.map((pay, i) => (
+                    <tr key={pay.id} style={{ borderBottom: '1px solid var(--gray-100)' }}>
+                      <td style={{ padding: '0.75rem 1rem', color: 'var(--gray-800)' }}>{new Date(pay.created_at).toLocaleDateString()}</td>
+                      <td style={{ padding: '0.75rem 1rem', color: 'var(--gray-500)' }}>{pay.id}</td>
+                      <td style={{ padding: '0.75rem 1rem', color: 'var(--gray-800)' }}>{pay.method}</td>
+                      <td style={{ padding: '0.75rem 1rem', color: 'var(--gray-600)' }}>
+                        {pay.bank_transaction_id ? `Txn: ${pay.bank_transaction_id}` : pay.cheque_number ? `Cheque: ${pay.cheque_number}` : ''} 
+                        {pay.notes ? ` - ${pay.notes}` : ''}
+                      </td>
+                      <td style={{ padding: '0.75rem 1rem', textAlign: 'right', fontWeight: 600, color: 'var(--success-600)' }}>{pay.amount}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
         </div>
 
         <style>{`
@@ -699,7 +747,7 @@ export default function BillingPage() {
                         >+ Record Pay</button>
                       )}
                       <button 
-                        onClick={() => { setCurrentInvoice(inv); setViewState('view'); }}
+                        onClick={() => handleViewInvoice(inv)}
                         style={{ color: 'var(--brand-600)', fontWeight: 600, fontSize: '0.8125rem' }}
                       >View</button>
                       {inv.payment_status === 'Unpaid' && (

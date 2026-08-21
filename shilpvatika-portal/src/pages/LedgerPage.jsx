@@ -50,6 +50,18 @@ export default function LedgerPage() {
     }
   }
 
+  async function handleDeleteTransaction(txId) {
+    if (!window.confirm('Delete this transaction? This cannot be undone.')) return;
+    try {
+      const { error } = await supabase.from('transactions').delete().eq('id', txId);
+      if (error) throw error;
+      fetchLedger(selectedEmp);
+    } catch (err) {
+      console.error('Error deleting transaction:', err);
+      alert('Failed to delete transaction.');
+    }
+  }
+
   async function fetchLedger(empId) {
     try {
       setLoading(true);
@@ -241,6 +253,7 @@ export default function LedgerPage() {
                   <th style={{ padding: '0.75rem 1.5rem' }}>Type</th>
                   <th style={{ padding: '0.75rem 1.5rem' }}>Notes</th>
                   <th style={{ padding: '0.75rem 1.5rem', textAlign: 'right' }}>Amount</th>
+                  <th style={{ padding: '0.75rem 1.5rem', textAlign: 'right' }}>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -270,6 +283,12 @@ export default function LedgerPage() {
                       </td>
                       <td style={{ padding: '1rem 1.5rem', textAlign: 'right', fontWeight: 600, color: isCredit ? 'var(--success-600)' : isDebit ? 'var(--error-600)' : 'inherit' }}>
                         {isCredit ? '+' : isDebit ? '-' : ''}₹{Math.abs(tx.amount)}
+                      </td>
+                      <td style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>
+                        <button 
+                          onClick={() => handleDeleteTransaction(tx.id)}
+                          style={{ color: 'var(--error-600)', fontWeight: 600, fontSize: '0.8125rem' }}
+                        >Delete</button>
                       </td>
                     </tr>
                   );

@@ -129,6 +129,26 @@ export default function AttendancePage() {
     }
   }
 
+  async function handleDeleteDayAttendance() {
+    const recordCount = Object.keys(attendance).length;
+    if (recordCount === 0) { alert('No attendance records to delete for this date.'); return; }
+    if (!window.confirm(`Delete all ${activeTab} attendance records for ${date}? This cannot be undone.`)) return;
+    try {
+      const { error } = await supabase
+        .from('attendance')
+        .delete()
+        .eq('date', date)
+        .eq('category', activeTab);
+      if (error) throw error;
+      setAttendance({});
+      setMessage('Attendance records deleted.');
+      setTimeout(() => setMessage(''), 3000);
+    } catch (err) {
+      console.error('Error deleting attendance:', err);
+      alert('Failed to delete attendance records.');
+    }
+  }
+
   return (
     <div className="page-container">
       <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -272,7 +292,20 @@ export default function AttendancePage() {
                 })}
               </tbody>
             </table>
-            <div style={{ padding: '1rem 1.5rem', borderTop: '1px solid var(--gray-200)', display: 'flex', justifyContent: 'flex-end', background: 'var(--gray-50)' }}>
+            <div style={{ padding: '1rem 1.5rem', borderTop: '1px solid var(--gray-200)', display: 'flex', justifyContent: 'flex-end', gap: '1rem', background: 'var(--gray-50)' }}>
+              <button 
+                onClick={handleDeleteDayAttendance}
+                style={{ 
+                  padding: '0.75rem 1.5rem', 
+                  color: 'var(--error-600)', 
+                  border: '1px solid var(--error-200)',
+                  borderRadius: 'var(--radius-md)', 
+                  fontWeight: 600,
+                  background: 'white'
+                }}
+              >
+                Clear Day's Records
+              </button>
               <button 
                 onClick={handleSave}
                 disabled={saving}

@@ -59,6 +59,18 @@ export default function EmployeesPage() {
     }
   }
 
+  async function handleDeleteEmployee(id, name) {
+    if (!window.confirm(`Delete employee "${name}"? This will also delete their attendance, transactions, and payout records. This cannot be undone.`)) return;
+    try {
+      const { error } = await supabase.from('employees').delete().eq('id', id);
+      if (error) throw error;
+      setEmployees(prev => prev.filter(e => e.id !== id));
+    } catch (err) {
+      console.error('Error deleting employee:', err);
+      alert('Failed to delete employee. ' + (err.message || ''));
+    }
+  }
+
   function handleOpenModal(emp = null) {
     if (emp) {
       setEditingId(emp.id);
@@ -191,12 +203,20 @@ export default function EmployeesPage() {
                     </span>
                   </td>
                   <td style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>
-                    <button 
-                      onClick={() => handleOpenModal(emp)}
-                      style={{ color: 'var(--brand-600)', fontWeight: 600, fontSize: '0.875rem' }}
-                    >
-                      Edit
-                    </button>
+                    <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>
+                      <button 
+                        onClick={() => handleOpenModal(emp)}
+                        style={{ color: 'var(--brand-600)', fontWeight: 600, fontSize: '0.875rem' }}
+                      >
+                        Edit
+                      </button>
+                      <button 
+                        onClick={() => handleDeleteEmployee(emp.id, emp.name)}
+                        style={{ color: 'var(--error-600)', fontWeight: 600, fontSize: '0.875rem' }}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

@@ -43,6 +43,18 @@ export default function PayoutsPage() {
     }
   }
 
+  async function handleDeletePayout(id) {
+    if (!window.confirm('Delete this payout request? This cannot be undone.')) return;
+    try {
+      const { error } = await supabase.from('payout_requests').delete().eq('id', id);
+      if (error) throw error;
+      setRequests(prev => prev.filter(r => r.id !== id));
+    } catch (err) {
+      console.error('Error deleting payout:', err);
+      alert('Failed to delete payout request.');
+    }
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
@@ -195,6 +207,10 @@ export default function PayoutsPage() {
                         Mark as Paid
                       </button>
                     )}
+                    <button 
+                      onClick={() => handleDeletePayout(req.id)}
+                      style={{ color: 'var(--error-600)', fontWeight: 600, fontSize: '0.8125rem', marginLeft: '0.5rem' }}
+                    >Delete</button>
                   </td>
                 </tr>
               ))}

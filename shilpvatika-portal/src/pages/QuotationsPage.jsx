@@ -44,6 +44,19 @@ export default function QuotationsPage() {
     }
   }
 
+  async function handleDeleteQuote(slug, clientName) {
+    if (!window.confirm(`Delete quotation "${slug}" for ${clientName || 'this client'}? This cannot be undone.`)) return;
+    try {
+      const { error } = await supabase.from('quotes').delete().eq('slug', slug);
+      if (error) throw error;
+      setQuotes(prev => prev.filter(q => q.slug !== slug));
+      if (viewState === 'view') setViewState('list');
+    } catch (err) {
+      console.error('Error deleting quote:', err);
+      alert('Failed to delete quotation. ' + (err.message || ''));
+    }
+  }
+
   function handleCreateNew() {
     const defaultSlug = 'QT-' + new Date().getFullYear() + '-' + Math.random().toString(36).substr(2, 6).toUpperCase();
     setCurrentQuote({
@@ -451,6 +464,10 @@ export default function QuotationsPage() {
                         onClick={() => { setCurrentQuote(quote); setViewState('edit'); }}
                         style={{ color: 'var(--gray-600)', fontWeight: 600, fontSize: '0.8125rem' }}
                       >Edit</button>
+                      <button 
+                        onClick={() => handleDeleteQuote(quote.slug, quote.client_name)}
+                        style={{ color: 'var(--error-600)', fontWeight: 600, fontSize: '0.8125rem' }}
+                      >Delete</button>
                     </div>
                   </td>
                 </tr>
