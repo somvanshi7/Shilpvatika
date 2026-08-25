@@ -264,7 +264,7 @@ export default function LedgerPage() {
                   return (
                     <tr key={tx.id} style={{ borderBottom: '1px solid var(--gray-100)' }}>
                       <td style={{ padding: '1rem 1.5rem', color: 'var(--gray-600)' }}>
-                        {new Date(tx.date).toLocaleDateString()}
+                        {new Date(tx.date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
                       </td>
                       <td style={{ padding: '1rem 1.5rem' }}>
                         <span style={{ 

@@ -31,6 +31,7 @@ export default function LoginPage() {
             style={{ 
               height: '80px', 
               width: 'auto', 
+              objectFit: 'contain',
               marginBottom: '1rem',
               display: 'block',
               margin: '0 auto'

@@ -275,13 +275,16 @@ export default function QuotationsPage() {
         {/* Printable Quote */}
         <div className="print-area" ref={printRef} style={{ background: 'white', padding: '3rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--gray-200)', minHeight: '800px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '2px solid var(--brand-600)', paddingBottom: '1.5rem', marginBottom: '2rem' }}>
-            <div>
-              <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--gray-900)', margin: 0, textTransform: 'uppercase' }}>{settings.company_name || 'Shilpvatika'}</h2>
-              <p style={{ color: 'var(--gray-600)', marginTop: '0.5rem', fontSize: '0.875rem', whiteSpace: 'pre-wrap' }}>
-                {settings.company_address}<br/>
-                {settings.company_phone && `Ph: ${settings.company_phone}`}<br/>
-                {settings.company_email && `Email: ${settings.company_email}`}
-              </p>
+            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+              <img src="/images/logo-shilpvatika.png" alt="Shilpvatika" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} onError={(e) => e.target.style.display='none'} />
+              <div>
+                <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--gray-900)', margin: 0, textTransform: 'uppercase' }}>{settings.company_name || 'Shilpvatika'}</h2>
+                <p style={{ color: 'var(--gray-600)', marginTop: '0.5rem', fontSize: '0.875rem', whiteSpace: 'pre-wrap' }}>
+                  {settings.company_address}<br/>
+                  {settings.company_phone && `Ph: ${settings.company_phone}`}<br/>
+                  {settings.company_email && `Email: ${settings.company_email}`}
+                </p>
+              </div>
             </div>
             <div style={{ textAlign: 'right' }}>
               <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--brand-600)', margin: 0, letterSpacing: '2px' }}>QUOTATION</h1>
@@ -292,11 +295,11 @@ export default function QuotationsPage() {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
                   <span style={{ color: 'var(--gray-500)', fontWeight: 600 }}>Date:</span>
-                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{new Date(currentQuote.created_at).toLocaleDateString()}</span>
+                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{new Date(currentQuote.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
                   <span style={{ color: 'var(--gray-500)', fontWeight: 600 }}>Valid Till:</span>
-                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{new Date(currentQuote.expires_at).toLocaleDateString()}</span>
+                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{new Date(currentQuote.expires_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
                 </div>
               </div>
             </div>
@@ -320,10 +323,11 @@ export default function QuotationsPage() {
           </div>
 
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', marginBottom: '2rem' }}>
-            <thead style={{ background: 'var(--brand-600)', color: 'white' }}>
+            <thead style={{ background: 'var(--brand-600)', color: 'white', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
               <tr>
-                <th style={{ padding: '0.75rem 1rem', width: '50%', borderTopLeftRadius: 'var(--radius-sm)', borderBottomLeftRadius: 'var(--radius-sm)' }}>Description</th>
-                <th style={{ padding: '0.75rem 1rem', width: '15%' }}>Quantity</th>
+                <th style={{ padding: '0.75rem 0.5rem', width: '5%', textAlign: 'center', borderTopLeftRadius: 'var(--radius-sm)', borderBottomLeftRadius: 'var(--radius-sm)' }}>Sr.</th>
+                <th style={{ padding: '0.75rem 1rem', width: '40%' }}>Description</th>
+                <th style={{ padding: '0.75rem 1rem', width: '20%' }}>Measurement / Qty</th>
                 <th style={{ padding: '0.75rem 1rem', width: '15%', textAlign: 'right' }}>Rate (₹)</th>
                 <th style={{ padding: '0.75rem 1rem', width: '20%', textAlign: 'right', borderTopRightRadius: 'var(--radius-sm)', borderBottomRightRadius: 'var(--radius-sm)' }}>Amount (₹)</th>
               </tr>
@@ -331,6 +335,7 @@ export default function QuotationsPage() {
             <tbody>
               {currentQuote.line_items.map((item, index) => (
                 <tr key={index} style={{ borderBottom: '1px solid var(--gray-200)' }}>
+                  <td style={{ padding: '1rem 0.5rem', textAlign: 'center', color: 'var(--gray-500)' }}>{index + 1}</td>
                   <td style={{ padding: '1rem', color: 'var(--gray-800)' }}>{item.description}</td>
                   <td style={{ padding: '1rem', color: 'var(--gray-600)' }}>{item.quantity}</td>
                   <td style={{ padding: '1rem', textAlign: 'right', color: 'var(--gray-600)' }}>{item.rate}</td>
@@ -361,12 +366,10 @@ export default function QuotationsPage() {
           
           <div style={{ marginTop: '4rem', display: 'flex', justifyContent: 'flex-end' }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ height: '60px', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img src="/images/signature-munesh-kumar-sharma.jpg" alt="Signature" style={{ maxHeight: '100%' }} />
-              </div>
+              <div style={{ height: '60px', marginBottom: '0.5rem' }}></div>
               <div style={{ width: '200px', borderTop: '1px solid var(--gray-400)', paddingTop: '0.5rem', margin: '0 auto' }}>
-                <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--gray-900)' }}>{settings.owner_name || 'Authorized Signatory'}</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)' }}>{settings.company_name || 'Shilpvatika Interiors'}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)' }}>Managing Director</div>
+                <div style={{ fontSize: '0.7rem', color: 'var(--gray-400)' }}>{settings.company_name || 'Shilpvatika Interiors & Woodworks'}</div>
               </div>
             </div>
           </div>
@@ -379,6 +382,7 @@ export default function QuotationsPage() {
             .print-area, .print-area * { visibility: visible; }
             .print-area { position: absolute; left: 0; top: 0; width: 100%; border: none !important; padding: 0 !important; }
             .no-print { display: none !important; }
+            thead { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
           }
         `}</style>
       </div>
@@ -425,7 +429,7 @@ export default function QuotationsPage() {
                 <tr key={quote.slug} style={{ borderBottom: '1px solid var(--gray-100)' }}>
                   <td style={{ padding: '1rem 1.5rem', fontWeight: 600, color: 'var(--gray-900)' }}>
                     {quote.slug}
-                    <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)', fontWeight: 400 }}>{new Date(quote.created_at).toLocaleDateString()}</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)', fontWeight: 400 }}>{new Date(quote.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
                   </td>
                   <td style={{ padding: '1rem 1.5rem' }}>
                     <div style={{ fontWeight: 600 }}>{quote.client_name || 'Unnamed Client'}</div>

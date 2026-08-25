@@ -26,7 +26,7 @@ export default async (req: Request, context: Context) => {
     const now = new Date();
     const expiresAt = new Date(metadata.expires_at);
     if (now > expiresAt) {
-      return new Response(buildErrorPage('Quote Expired', `This quotation (${slug}) expired on ${expiresAt.toLocaleDateString()}. Please contact Shilpvatika for a revised quotation.`), {
+      return new Response(buildErrorPage('Quote Expired', `This quotation (${slug}) expired on ${expiresAt.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}. Please contact Shilpvatika for a revised quotation.`), {
         status: 410,
         headers: { 'Content-Type': 'text/html' },
       });
@@ -49,7 +49,7 @@ export default async (req: Request, context: Context) => {
 
     const ogTags = `
       <meta property="og:title" content="Shilpvatika Quotation: ${metadata.clientName}">
-      <meta property="og:description" content="Total: ₹${totalFormatted} | Valid until: ${expiresAt.toLocaleDateString()}">
+      <meta property="og:description" content="Total: ₹${totalFormatted} | Valid until: ${expiresAt.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}">
       <meta property="og:type" content="website">
       <meta name="twitter:card" content="summary">
     `;

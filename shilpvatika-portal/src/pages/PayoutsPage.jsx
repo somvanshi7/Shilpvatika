@@ -156,7 +156,7 @@ export default function PayoutsPage() {
               {requests.map(req => (
                 <tr key={req.id} style={{ borderBottom: '1px solid var(--gray-100)' }}>
                   <td style={{ padding: '1rem 1.5rem', color: 'var(--gray-600)' }}>
-                    {new Date(req.created_at).toLocaleDateString()}
+                    {new Date(req.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
                   </td>
                   <td style={{ padding: '1rem 1.5rem' }}>
                     <div style={{ fontWeight: 600, color: 'var(--gray-900)' }}>{req.employees?.name}</div>

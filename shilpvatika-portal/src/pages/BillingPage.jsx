@@ -420,10 +420,9 @@ export default function BillingPage() {
         <div className="print-area" ref={printRef} style={{ background: 'white', padding: '3rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--gray-200)', minHeight: '800px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '2px solid var(--gray-900)', paddingBottom: '1.5rem', marginBottom: '2rem' }}>
             <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-              <img src="/images/logo-shilpvatika.png" alt="Logo" style={{ height: '60px' }} onError={(e) => e.target.style.display='none'} />
+              <img src="/images/logo-shilpvatika.png" alt="Logo" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} onError={(e) => e.target.style.display='none'} />
               <div>
-                <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--gray-900)', margin: 0 }}>{settings.company_name || 'Shilpvatika Interiors & Woodworks'}</h2>
-                <p style={{ color: 'var(--gray-600)', marginTop: '0.25rem', fontSize: '0.875rem' }}>Premium Interior Designing and Carpentry Services</p>
+                <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--gray-900)', margin: 0 }}>{settings.company_name || 'Shilpvatika Interiors & Woodworks'}</h2>
                 <p style={{ color: 'var(--gray-500)', marginTop: '0.25rem', fontSize: '0.75rem', whiteSpace: 'pre-wrap' }}>
                   {settings.company_address}<br/>
                   {settings.company_phone && `Ph: ${settings.company_phone} | `} {settings.company_email && `Email: ${settings.company_email}`}
@@ -439,30 +438,31 @@ export default function BillingPage() {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
                   <span style={{ color: 'var(--gray-500)', fontWeight: 600 }}>Issue Date:</span>
-                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{new Date(currentInvoice.issue_date).toLocaleDateString()}</span>
+                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{new Date(currentInvoice.issue_date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
                   <span style={{ color: 'var(--gray-500)', fontWeight: 600 }}>Due Date:</span>
-                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{new Date(currentInvoice.due_date).toLocaleDateString()}</span>
+                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{new Date(currentInvoice.due_date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div style={{ background: 'var(--gray-50)', padding: '1.5rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--gray-800)', marginBottom: '3rem', width: '50%' }}>
-            <h3 style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--gray-500)', fontWeight: 700, letterSpacing: '1px', marginBottom: '0.5rem' }}>Billed To</h3>
-            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--gray-900)' }}>{currentInvoice.client_name || '-'}</div>
-            <div style={{ color: 'var(--gray-600)', marginTop: '0.5rem', fontSize: '0.875rem', whiteSpace: 'pre-wrap' }}>
+          <div style={{ background: 'var(--gray-50)', padding: '1rem 1.25rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--gray-800)', marginBottom: '2rem', width: '40%' }}>
+            <h3 style={{ fontSize: '0.7rem', textTransform: 'uppercase', color: 'var(--gray-500)', fontWeight: 700, letterSpacing: '1px', marginBottom: '0.25rem' }}>Billed To</h3>
+            <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--gray-900)' }}>{currentInvoice.client_name || '-'}</div>
+            <div style={{ color: 'var(--gray-600)', marginTop: '0.25rem', fontSize: '0.8rem', whiteSpace: 'pre-wrap' }}>
               {currentInvoice.client_address}<br/>
               {currentInvoice.client_phone}
             </div>
           </div>
 
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', marginBottom: '2rem' }}>
-            <thead style={{ background: 'var(--gray-800)', color: 'white' }}>
+            <thead style={{ background: 'var(--gray-800)', color: 'white', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
               <tr>
-                <th style={{ padding: '0.75rem 1rem', width: '40%', borderTopLeftRadius: 'var(--radius-sm)', borderBottomLeftRadius: 'var(--radius-sm)' }}>Description</th>
-                <th style={{ padding: '0.75rem 1rem', width: '25%' }}>Measurements / Qty</th>
+                <th style={{ padding: '0.75rem 0.5rem', width: '5%', textAlign: 'center', borderTopLeftRadius: 'var(--radius-sm)', borderBottomLeftRadius: 'var(--radius-sm)' }}>Sr.</th>
+                <th style={{ padding: '0.75rem 1rem', width: '35%' }}>Description</th>
+                <th style={{ padding: '0.75rem 1rem', width: '25%' }}>Measurement / Qty</th>
                 <th style={{ padding: '0.75rem 1rem', width: '15%', textAlign: 'right' }}>Rate (₹)</th>
                 <th style={{ padding: '0.75rem 1rem', width: '20%', textAlign: 'right', borderTopRightRadius: 'var(--radius-sm)', borderBottomRightRadius: 'var(--radius-sm)' }}>Amount (₹)</th>
               </tr>
@@ -470,11 +470,12 @@ export default function BillingPage() {
             <tbody>
               {currentInvoice.line_items.map((item, index) => (
                 <tr key={index} style={{ borderBottom: '1px solid var(--gray-200)' }}>
+                  <td style={{ padding: '1rem 0.5rem', textAlign: 'center', color: 'var(--gray-500)' }}>{index + 1}</td>
                   <td style={{ padding: '1rem', color: 'var(--gray-800)' }}>{item.description}</td>
                   <td style={{ padding: '1rem', color: 'var(--gray-600)', fontSize: '0.875rem' }}>
                     {item.calcType === 'area' ? (
                       <>
-                        <div>L: {item.l_ft}' {item.l_in}" × W: {item.w_ft}' {item.w_in}"</div>
+                        <div>{item.l_ft}'{item.l_in}" L × {item.w_ft}'{item.w_in}" W</div>
                         <div style={{ fontWeight: 600, color: 'var(--gray-800)', marginTop: '0.25rem' }}>{item.sqft} Sq.Ft</div>
                       </>
                     ) : (
@@ -542,18 +543,12 @@ export default function BillingPage() {
               )}
             </div>
             
-            <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'flex-end', marginTop: '2rem' }}>
-              <div style={{ fontSize: '0.875rem', color: 'var(--gray-600)' }}>
-                <strong>Generated by:</strong> {currentInvoice.billed_by_name || 'Admin'}
-              </div>
-              
+            <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', marginTop: '2rem' }}>
               <div style={{ textAlign: 'center' }}>
-                <div style={{ height: '60px', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <img src="/images/signature.jpg" alt="Signature" style={{ maxHeight: '100%' }} />
-                </div>
+                <div style={{ height: '60px', marginBottom: '0.5rem' }}></div>
                 <div style={{ width: '200px', borderTop: '1px solid var(--gray-400)', paddingTop: '0.5rem', margin: '0 auto' }}>
-                  <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--gray-900)' }}>Munesh Kumar Sharma</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)' }}>{settings.company_name || 'Shilpvatika Interiors'}</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)' }}>Managing Director</div>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--gray-400)' }}>{settings.company_name || 'Shilpvatika Interiors & Woodworks'}</div>
                 </div>
               </div>
             </div>
@@ -575,7 +570,7 @@ export default function BillingPage() {
                 <tbody>
                   {invoicePayments.map((pay, i) => (
                     <tr key={pay.id} style={{ borderBottom: '1px solid var(--gray-100)' }}>
-                      <td style={{ padding: '0.75rem 1rem', color: 'var(--gray-800)' }}>{new Date(pay.created_at).toLocaleDateString()}</td>
+                      <td style={{ padding: '0.75rem 1rem', color: 'var(--gray-800)' }}>{new Date(pay.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</td>
                       <td style={{ padding: '0.75rem 1rem', color: 'var(--gray-500)' }}>{pay.id}</td>
                       <td style={{ padding: '0.75rem 1rem', color: 'var(--gray-800)' }}>{pay.method}</td>
                       <td style={{ padding: '0.75rem 1rem', color: 'var(--gray-600)' }}>
@@ -599,6 +594,7 @@ export default function BillingPage() {
             .print-area, .print-area * { visibility: visible; }
             .print-area { position: absolute; left: 0; top: 0; width: 100%; border: none !important; padding: 2cm !important; }
             .no-print { display: none !important; }
+            thead { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
           }
         `}</style>
       </div>
@@ -717,7 +713,7 @@ export default function BillingPage() {
                 <tr key={inv.id} style={{ borderBottom: '1px solid var(--gray-100)' }}>
                   <td style={{ padding: '1rem 1.5rem', fontWeight: 600, color: 'var(--gray-900)' }}>
                     {inv.id}
-                    <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)', fontWeight: 400 }}>Due: {new Date(inv.due_date).toLocaleDateString()}</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)', fontWeight: 400 }}>Due: {new Date(inv.due_date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
                   </td>
                   <td style={{ padding: '1rem 1.5rem' }}>
                     <div style={{ fontWeight: 600 }}>{inv.client_name || 'Unnamed Client'}</div>

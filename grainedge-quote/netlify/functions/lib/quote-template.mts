@@ -41,8 +41,8 @@ export function buildQuoteHtml(data) {
     expires_at,
   } = data;
 
-  const issueDate = new Date(created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
-  const validUntil = new Date(expires_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+  const issueDate = new Date(created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+  const validUntil = new Date(expires_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
   
   const formattedSubtotal = new Intl.NumberFormat('en-IN').format(Math.round(subtotal));
   const formattedGst = new Intl.NumberFormat('en-IN').format(Math.round(gstAmount));
@@ -271,10 +271,9 @@ export function buildQuoteHtml(data) {
     <!-- Header -->
     <div class="header">
       <div class="brand-col">
-        <img src="${logoDataUrl}" alt="Shilpvatika" style="height: 72px; width: auto; margin-bottom: 8px;" />
-        <p>Interior Design & Wood Works</p>
-        <p style="margin-top: 8px;">42 Industrial Area, Phase-2, Gurugram, Haryana</p>
-        <p>+91 98765 43210 | hello@shilpvatika.com</p>
+        <img src="${logoDataUrl}" alt="Shilpvatika" style="height: 72px; width: auto; margin-bottom: 8px; object-fit: contain;" />
+        <p style="font-size: 10pt; color: var(--clr-text-light); margin-top: 8px;">Sector 88, Near RPS AURIA, Greater Faridabad, Haryana, 121002</p>
+        <p style="font-size: 9pt; color: var(--clr-text-light);">+91 96951 69313 | support@shilpvatika.com</p>
       </div>
       <div class="meta-col">
         <div class="doc-title">Quotation</div>
@@ -361,7 +360,8 @@ export function buildQuoteHtml(data) {
     <div class="signature-section">
       <div class="sig-box">
         <div class="sig-line"></div>
-        <div class="sig-text">For Shilpvatika</div>
+        <div class="sig-text">Managing Director</div>
+        <div style="font-size: 8pt; color: #999; margin-top: 2px;">Shilpvatika Interiors & Woodworks</div>
       </div>
     </div>
 

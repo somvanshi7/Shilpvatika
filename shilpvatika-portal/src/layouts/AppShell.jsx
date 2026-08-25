@@ -162,6 +162,7 @@ export default function AppShell() {
             style={{ 
               height: '40px', 
               width: 'auto',
+              objectFit: 'contain',
               marginBottom: '0.5rem'
             }} 
           />

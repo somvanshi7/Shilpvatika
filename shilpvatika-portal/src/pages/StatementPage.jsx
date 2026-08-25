@@ -173,14 +173,18 @@ export default function StatementPage() {
         <div className="print-area" ref={printRef} style={{ background: 'white', padding: '3rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--gray-200)', minHeight: '800px' }}>
           
           <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '2px solid var(--gray-900)', paddingBottom: '1.5rem', marginBottom: '2rem' }}>
-            <div>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--gray-900)', margin: 0 }}>Shilpvatika Interiors & Woodworks</h2>
-              <p style={{ color: 'var(--gray-600)', marginTop: '0.25rem', fontSize: '0.875rem' }}>Sector 88, Near RPS Auria, Faridabad, Haryana, 121002</p>
+            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+              <img src="/images/logo-shilpvatika.png" alt="Shilpvatika" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} onError={(e) => e.target.style.display='none'} />
+              <div>
+                <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--gray-900)', margin: 0 }}>Shilpvatika Interiors & Woodworks</h2>
+                <p style={{ color: 'var(--gray-600)', marginTop: '0.25rem', fontSize: '0.8rem' }}>Sector 88, Near RPS AURIA, Greater Faridabad, Haryana, 121002</p>
+                <p style={{ color: 'var(--gray-500)', marginTop: '0.15rem', fontSize: '0.75rem' }}>Ph: +91 96951 69313 | Email: support@shilpvatika.com</p>
+              </div>
             </div>
             <div style={{ textAlign: 'right' }}>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>Account Statement</h3>
               <p style={{ color: 'var(--gray-600)', fontSize: '0.875rem', marginTop: '0.25rem' }}>
-                Generated: {new Date(statementData.generatedAt).toLocaleDateString()}
+                Generated: {new Date(statementData.generatedAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
               </p>
             </div>
           </div>
@@ -195,7 +199,7 @@ export default function StatementPage() {
             <div style={{ textAlign: 'right' }}>
               <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--gray-500)', fontWeight: 600, marginBottom: '0.25rem' }}>Statement Period</div>
               <div style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--gray-900)' }}>
-                {new Date(statementData.startDate).toLocaleDateString()} — {new Date(statementData.endDate).toLocaleDateString()}
+                {new Date(statementData.startDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })} — {new Date(statementData.endDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
               </div>
             </div>
           </div>
@@ -242,7 +246,7 @@ export default function StatementPage() {
               </thead>
               <tbody>
                 <tr style={{ borderBottom: '1px solid var(--gray-100)' }}>
-                  <td style={{ padding: '0.75rem 0', fontStyle: 'italic', color: 'var(--gray-500)' }}>{new Date(statementData.startDate).toLocaleDateString()}</td>
+                  <td style={{ padding: '0.75rem 0', fontStyle: 'italic', color: 'var(--gray-500)' }}>{new Date(statementData.startDate).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</td>
                   <td style={{ padding: '0.75rem 0', fontStyle: 'italic', color: 'var(--gray-500)' }}>Opening Balance</td>
                   <td style={{ padding: '0.75rem 0' }}></td>
                   <td style={{ padding: '0.75rem 0' }}></td>
@@ -253,7 +257,7 @@ export default function StatementPage() {
                   const isDebit = ['Advance', 'PaydayPayment', 'Deduction'].includes(tx.type) || (tx.type === 'Adjustment' && tx.amount < 0);
                   return (
                     <tr key={tx.id} style={{ borderBottom: '1px solid var(--gray-100)' }}>
-                      <td style={{ padding: '0.75rem 0' }}>{new Date(tx.date).toLocaleDateString()}</td>
+                      <td style={{ padding: '0.75rem 0' }}>{new Date(tx.date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</td>
                       <td style={{ padding: '0.75rem 0' }}>{tx.type} {tx.notes ? `- ${tx.notes}` : ''}</td>
                       <td style={{ padding: '0.75rem 0', textAlign: 'right', color: 'var(--success-600)' }}>{isCredit ? `₹${Math.abs(tx.amount)}` : ''}</td>
                       <td style={{ padding: '0.75rem 0', textAlign: 'right', color: 'var(--error-600)' }}>{isDebit ? `₹${Math.abs(tx.amount)}` : ''}</td>
@@ -271,12 +275,10 @@ export default function StatementPage() {
               <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)' }}>Employee Signature</div>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ height: '50px', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img src="/images/signature-munesh-kumar-sharma.jpg" alt="Owner Signature" style={{ maxHeight: '100%', opacity: 0.8 }} />
-              </div>
+              <div style={{ height: '50px', marginBottom: '0.5rem' }}></div>
               <div style={{ width: '150px', borderTop: '1px solid var(--gray-400)', paddingTop: '0.25rem', margin: '0 auto' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 600 }}>Munesh Kumar Sharma</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)' }}>Manager</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)' }}>Managing Director</div>
+                <div style={{ fontSize: '0.7rem', color: 'var(--gray-400)' }}>Shilpvatika Interiors & Woodworks</div>
               </div>
             </div>
           </div>
