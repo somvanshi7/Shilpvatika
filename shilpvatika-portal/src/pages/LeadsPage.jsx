@@ -207,22 +207,43 @@ export default function LeadsPage() {
                             </span>
                           </td>
                           <td style={cellStyle} onClick={e => e.stopPropagation()}>
-                            <select
-                              value={lead.status}
-                              onChange={(e) => updateStatus(lead.id, e.target.value)}
-                              style={{
-                                padding: '0.35rem 0.5rem',
-                                borderRadius: '6px',
-                                border: '1px solid var(--gray-300)',
-                                fontSize: '0.8rem',
-                                cursor: 'pointer',
-                                background: 'white',
-                              }}
-                            >
-                              <option value="New">New</option>
-                              <option value="Contacted">Contacted</option>
-                              <option value="Resolved">Resolved</option>
-                            </select>
+                            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                              <select
+                                value={lead.status}
+                                onChange={(e) => updateStatus(lead.id, e.target.value)}
+                                style={{
+                                  padding: '0.35rem 0.5rem',
+                                  borderRadius: '6px',
+                                  border: '1px solid var(--gray-300)',
+                                  fontSize: '0.8rem',
+                                  cursor: 'pointer',
+                                  background: 'white',
+                                }}
+                              >
+                                <option value="New">New</option>
+                                <option value="Contacted">Contacted</option>
+                                <option value="Resolved">Resolved</option>
+                              </select>
+                              <button
+                                onClick={() => deleteLead(lead.id)}
+                                title="Delete this inquiry"
+                                style={{
+                                  padding: '0.3rem 0.5rem',
+                                  background: 'transparent',
+                                  color: 'var(--gray-400)',
+                                  border: '1px solid var(--gray-200)',
+                                  borderRadius: '6px',
+                                  cursor: 'pointer',
+                                  fontSize: '0.85rem',
+                                  lineHeight: 1,
+                                  transition: 'color 0.15s, border-color 0.15s',
+                                }}
+                                onMouseEnter={e => { e.target.style.color = '#dc2626'; e.target.style.borderColor = '#fca5a5'; }}
+                                onMouseLeave={e => { e.target.style.color = 'var(--gray-400)'; e.target.style.borderColor = 'var(--gray-200)'; }}
+                              >
+                                🗑
+                              </button>
+                            </div>
                           </td>
                         </tr>
                         {isExpanded && (

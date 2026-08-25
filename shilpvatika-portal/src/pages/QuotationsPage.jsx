@@ -290,8 +290,7 @@ export default function QuotationsPage() {
               <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--brand-600)', margin: 0, letterSpacing: '2px' }}>QUOTATION</h1>
               <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
-                  <span style={{ color: 'var(--gray-500)', fontWeight: 600 }}>Quote No:</span>
-                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{currentQuote.slug}</span>
+                  <span style={{ fontWeight: 700, minWidth: '100px', fontSize: '1.25rem' }}>{currentQuote.slug}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
                   <span style={{ color: 'var(--gray-500)', fontWeight: 600 }}>Date:</span>
@@ -366,7 +365,9 @@ export default function QuotationsPage() {
           
           <div style={{ marginTop: '4rem', display: 'flex', justifyContent: 'flex-end' }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ height: '60px', marginBottom: '0.5rem' }}></div>
+              <div style={{ height: '60px', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img src="/images/signature-munesh-kumar-sharma.jpg" alt="Signature" style={{ maxHeight: '100%' }} />
+              </div>
               <div style={{ width: '200px', borderTop: '1px solid var(--gray-400)', paddingTop: '0.5rem', margin: '0 auto' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)' }}>Managing Director</div>
                 <div style={{ fontSize: '0.7rem', color: 'var(--gray-400)' }}>{settings.company_name || 'Shilpvatika Interiors & Woodworks'}</div>

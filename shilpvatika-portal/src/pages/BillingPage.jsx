@@ -433,8 +433,7 @@ export default function BillingPage() {
               <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--gray-900)', margin: 0, letterSpacing: '2px' }}>INVOICE</h1>
               <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
-                  <span style={{ color: 'var(--gray-500)', fontWeight: 600 }}>Invoice No:</span>
-                  <span style={{ fontWeight: 700, minWidth: '100px' }}>{currentInvoice.id}</span>
+                  <span style={{ fontWeight: 700, minWidth: '100px', fontSize: '1.25rem' }}>{currentInvoice.id}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
                   <span style={{ color: 'var(--gray-500)', fontWeight: 600 }}>Issue Date:</span>

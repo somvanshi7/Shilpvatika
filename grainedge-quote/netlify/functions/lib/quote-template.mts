@@ -278,8 +278,8 @@ export function buildQuoteHtml(data) {
       <div class="meta-col">
         <div class="doc-title">Quotation</div>
         <div class="meta-grid">
-          <div class="meta-label">Quote ID</div>
-          <div class="meta-value">${slug}</div>
+          <div class="meta-label"></div>
+          <div class="meta-value" style="font-size: 14pt; font-weight: 700;">${slug}</div>
           
           <div class="meta-label">Issue Date</div>
           <div class="meta-value">${issueDate}</div>
@@ -358,7 +358,8 @@ export function buildQuoteHtml(data) {
 
     <!-- Signature -->
     <div class="signature-section">
-      <div class="sig-box">
+      <div class="sig-box" style="text-align: center;">
+        <img src="https://raw.githubusercontent.com/somvanshi7/Shilpvatika/main/grainedge-quote/public/signature-munesh-kumar-sharma.jpg" alt="Signature" style="height: 50px; margin-bottom: 5px; display: block; margin-left: auto; margin-right: auto;" onerror="this.style.display='none'" />
         <div class="sig-line"></div>
         <div class="sig-text">Managing Director</div>
         <div style="font-size: 8pt; color: #999; margin-top: 2px;">Shilpvatika Interiors & Woodworks</div>
