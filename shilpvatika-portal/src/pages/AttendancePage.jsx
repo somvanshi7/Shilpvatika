@@ -51,7 +51,8 @@ export default function AttendancePage() {
         attData.forEach(record => {
           attMap[record.employee_id] = {
             present: record.present,
-            notes: record.notes || ''
+            notes: record.notes || '',
+            overtime_pay: record.overtime_pay || 0
           };
         });
       }
@@ -70,7 +71,9 @@ export default function AttendancePage() {
       ...prev,
       [empId]: {
         ...prev[empId],
-        present: presentValue
+        present: presentValue,
+        // Reset overtime pay if not overtime
+        overtime_pay: presentValue === 'O' ? (prev[empId]?.overtime_pay || 0) : 0
       }
     }));
   }
@@ -82,6 +85,17 @@ export default function AttendancePage() {
         ...prev[empId],
         present: prev[empId]?.present || 'N', // default to N if notes entered but present not clicked
         notes: notesValue
+      }
+    }));
+  }
+
+  function handleOvertimePayChange(empId, payValue) {
+    setAttendance(prev => ({
+      ...prev,
+      [empId]: {
+        ...prev[empId],
+        present: 'O',
+        overtime_pay: parseInt(payValue) || 0
       }
     }));
   }
@@ -106,6 +120,7 @@ export default function AttendancePage() {
             category: activeTab,
             present: att.present,
             notes: att.notes,
+            overtime_pay: att.overtime_pay || 0,
             recorded_by: profile?.id
           });
         }
@@ -241,51 +256,61 @@ export default function AttendancePage() {
                         </span>
                       </td>
                       <td style={{ padding: '1rem 1.5rem' }}>
-                        <div style={{ display: 'flex', gap: '0.5rem' }}>
-                          <button 
-                            onClick={() => handleAttendanceChange(emp.id, 'Y')}
-                            style={{ 
-                              padding: '0.4rem 0.8rem', 
-                              borderRadius: 'var(--radius-sm)',
-                              fontWeight: 600,
-                              background: att.present === 'Y' ? 'var(--success-500)' : 'var(--gray-100)',
-                              color: att.present === 'Y' ? 'white' : 'var(--gray-600)',
-                              border: '1px solid',
-                              borderColor: att.present === 'Y' ? 'var(--success-500)' : 'var(--gray-200)',
-                            }}
-                          >
-                            Present
-                          </button>
-                          <button 
-                            onClick={() => handleAttendanceChange(emp.id, 'N')}
-                            style={{ 
-                              padding: '0.4rem 0.8rem', 
-                              borderRadius: 'var(--radius-sm)',
-                              fontWeight: 600,
-                              background: att.present === 'N' ? 'var(--error-500)' : 'var(--gray-100)',
-                              color: att.present === 'N' ? 'white' : 'var(--gray-600)',
-                              border: '1px solid',
-                              borderColor: att.present === 'N' ? 'var(--error-500)' : 'var(--gray-200)',
-                            }}
-                          >
-                            Absent
-                          </button>
-                        </div>
+                        <select
+                          value={att.present || 'N'}
+                          onChange={(e) => handleAttendanceChange(emp.id, e.target.value)}
+                          style={{
+                            padding: '0.4rem 0.8rem',
+                            borderRadius: 'var(--radius-sm)',
+                            border: '1px solid var(--gray-300)',
+                            fontWeight: 600,
+                            background: att.present === 'Y' ? 'var(--success-50)' : 
+                                        att.present === 'H' ? 'var(--warning-50)' : 
+                                        att.present === 'O' ? 'var(--brand-50)' : 'var(--error-50)',
+                            color: att.present === 'Y' ? 'var(--success-700)' : 
+                                   att.present === 'H' ? 'var(--warning-700)' : 
+                                   att.present === 'O' ? 'var(--brand-700)' : 'var(--error-700)',
+                            width: '100%'
+                          }}
+                        >
+                          <option value="N">Absent</option>
+                          <option value="Y">Present (Full Day)</option>
+                          <option value="H">Half Day</option>
+                          <option value="O">Overtime</option>
+                        </select>
                       </td>
                       <td style={{ padding: '1rem 1.5rem' }}>
-                        <input 
-                          type="text" 
-                          placeholder="Half day, late, etc." 
-                          value={att.notes || ''} 
-                          onChange={(e) => handleNotesChange(emp.id, e.target.value)}
-                          style={{ 
-                            width: '100%', 
-                            padding: '0.5rem', 
-                            borderRadius: 'var(--radius-sm)', 
-                            border: '1px solid var(--gray-300)',
-                            fontSize: '0.8125rem'
-                          }} 
-                        />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                          <input 
+                            type="text" 
+                            placeholder="Notes (Half day, late, etc.)" 
+                            value={att.notes || ''} 
+                            onChange={(e) => handleNotesChange(emp.id, e.target.value)}
+                            style={{ 
+                              width: '100%', 
+                              padding: '0.5rem', 
+                              borderRadius: 'var(--radius-sm)', 
+                              border: '1px solid var(--gray-300)',
+                              fontSize: '0.8125rem'
+                            }} 
+                          />
+                          {att.present === 'O' && (
+                            <input 
+                              type="number" 
+                              placeholder="Extra OT Amount (₹)" 
+                              value={att.overtime_pay || ''} 
+                              onChange={(e) => handleOvertimePayChange(emp.id, e.target.value)}
+                              style={{ 
+                                width: '100%', 
+                                padding: '0.5rem', 
+                                borderRadius: 'var(--radius-sm)', 
+                                border: '1px solid var(--brand-300)',
+                                background: 'var(--brand-50)',
+                                fontSize: '0.8125rem'
+                              }} 
+                            />
+                          )}
+                        </div>
                       </td>
                     </tr>
                   );

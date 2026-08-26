@@ -121,22 +121,42 @@ export default function LedgerPage() {
       // Fetch attendance in range
       const { data: attData, error: attErr } = await supabase
         .from('attendance')
-        .select('present')
+        .select('present, overtime_pay')
         .eq('employee_id', selectedEmp)
         .gte('date', paydayForm.startDate)
         .lte('date', paydayForm.endDate)
-        .eq('present', 'Y');
+        .in('present', ['Y', 'H', 'O']);
         
       if (attErr) throw attErr;
 
-      const presentDays = attData.length;
-      const totalEarned = presentDays * (employeeDetails?.day_pay || 0);
+      let fullDays = 0;
+      let halfDays = 0;
+      let overtimeDays = 0;
+      let totalEarned = 0;
+      const dayRate = employeeDetails?.day_pay || 0;
 
-      // We should also calculate total advances/deductions since last payday to show balance, 
-      // but for a simple Payday Credit, we just calculate the earned amount.
+      attData.forEach(att => {
+        if (att.present === 'Y') {
+          fullDays++;
+          totalEarned += dayRate;
+        } else if (att.present === 'H') {
+          halfDays++;
+          totalEarned += (dayRate / 2);
+        } else if (att.present === 'O') {
+          overtimeDays++;
+          totalEarned += dayRate + (att.overtime_pay || 0);
+        }
+      });
+
+      // Construct a breakdown string
+      const breakdown = [
+        fullDays > 0 ? `${fullDays} Full` : null,
+        halfDays > 0 ? `${halfDays} Half` : null,
+        overtimeDays > 0 ? `${overtimeDays} OT` : null
+      ].filter(Boolean).join(', ') || '0 days';
       
       setPaydayPreview({
-        presentDays,
+        breakdown,
         totalEarned
       });
       
@@ -155,7 +175,7 @@ export default function LedgerPage() {
         date: paydayForm.endDate,
         type: 'Credit', // Earned money from attendance
         amount: paydayPreview.totalEarned,
-        notes: `Payday: ${paydayForm.startDate} to ${paydayForm.endDate} (${paydayPreview.presentDays} days)`,
+        notes: `Payday: ${paydayForm.startDate} to ${paydayForm.endDate} (${paydayPreview.breakdown})`,
         created_by: profile?.id
       };
 
@@ -379,8 +399,8 @@ export default function LedgerPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <div style={{ background: 'var(--gray-50)', padding: '1rem', borderRadius: 'var(--radius-md)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                    <span style={{ color: 'var(--gray-600)' }}>Days Present:</span>
-                    <span style={{ fontWeight: 600 }}>{paydayPreview.presentDays}</span>
+                    <span style={{ color: 'var(--gray-600)' }}>Breakdown:</span>
+                    <span style={{ fontWeight: 600 }}>{paydayPreview.breakdown}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                     <span style={{ color: 'var(--gray-600)' }}>Daily Rate:</span>

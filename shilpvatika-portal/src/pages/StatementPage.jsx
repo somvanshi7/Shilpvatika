@@ -78,9 +78,13 @@ export default function StatementPage() {
       if (attErr) throw attErr;
 
       let presentDays = 0;
+      let halfDays = 0;
+      let overtimeDays = 0;
       let absentDays = 0;
       attData.forEach(att => {
         if (att.present === 'Y') presentDays++;
+        else if (att.present === 'H') halfDays++;
+        else if (att.present === 'O') overtimeDays++;
         else absentDays++;
       });
 
@@ -90,7 +94,7 @@ export default function StatementPage() {
         endDate,
         openingBalance,
         transactions: txData || [],
-        attendance: { presentDays, absentDays, records: attData || [] },
+        attendance: { presentDays, halfDays, overtimeDays, absentDays, records: attData || [] },
         generatedAt: new Date().toISOString()
       });
       
@@ -220,11 +224,19 @@ export default function StatementPage() {
             <div style={{ background: 'var(--gray-50)', padding: '1.25rem', borderRadius: 'var(--radius-md)' }}>
               <h4 style={{ fontSize: '0.875rem', color: 'var(--gray-700)', marginBottom: '1rem' }}>Attendance Summary</h4>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.875rem' }}>
-                <span style={{ color: 'var(--gray-600)' }}>Days Present:</span>
+                <span style={{ color: 'var(--gray-600)' }}>Full Days:</span>
                 <span style={{ fontWeight: 600 }}>{statementData.attendance.presentDays}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.875rem' }}>
-                <span style={{ color: 'var(--gray-600)' }}>Days Absent:</span>
+                <span style={{ color: 'var(--gray-600)' }}>Half Days:</span>
+                <span style={{ fontWeight: 600 }}>{statementData.attendance.halfDays}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.875rem' }}>
+                <span style={{ color: 'var(--gray-600)' }}>Overtime:</span>
+                <span style={{ fontWeight: 600 }}>{statementData.attendance.overtimeDays}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.875rem' }}>
+                <span style={{ color: 'var(--gray-600)' }}>Absences:</span>
                 <span style={{ fontWeight: 600 }}>{statementData.attendance.absentDays}</span>
               </div>
             </div>
