@@ -1,3 +1,5 @@
 /api/*  /.netlify/functions/:splat  200
 /q/*    /.netlify/functions/serve-quote  200
-/*      /index.html  200
+/success/*  /index.html  200
+/admin      /index.html  200
+/*          /404.html    404

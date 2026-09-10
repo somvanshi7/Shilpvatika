@@ -21,9 +21,19 @@
   to = "/.netlify/functions/serve-quote?slug=:slug"
   status = 200
 
-# SPA catch-all — React Router handles all other routes
-# Netlify serves existing static files first, then falls back here
+# SPA routes — only known React Router paths rewrite to index.html
 [[redirects]]
-  from = "/*"
+  from = "/success/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/index.html"
+  status = 200
+
+# Custom 404 — all other unknown URLs get a proper 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

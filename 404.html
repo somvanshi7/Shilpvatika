@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Page Not Found | Shilpvatika</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --clr-bg: #faf8f5;
+      --clr-white: #ffffff;
+      --clr-surface: #f3efe9;
+      --clr-accent: #7a4e2d;
+      --clr-accent-hover: #5c3a1f;
+      --clr-accent-light: #c8956c;
+      --clr-gold: #c9952e;
+      --clr-text: #1a1410;
+      --clr-text-secondary: #4a3f36;
+      --clr-text-light: #6e6054;
+      --clr-border: #d9cfc2;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --radius: 12px;
+      --shadow-md: 0 4px 20px rgba(0,0,0,.1);
+      --transition: .3s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .error-container {
+      max-width: 560px;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 15vw, 9rem);
+      font-weight: 700;
+      color: var(--clr-accent-light);
+      line-height: 1;
+      letter-spacing: -2px;
+      opacity: 0.35;
+    }
+
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 600;
+      color: var(--clr-text);
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .error-message {
+      color: var(--clr-text-light);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--clr-accent);
+      color: var(--clr-white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      background: var(--clr-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(122, 78, 45, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--clr-surface);
+      color: var(--clr-text-secondary);
+      border: 1px solid var(--clr-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--clr-white);
+      border-color: var(--clr-accent-light);
+      transform: translateY(-2px);
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--clr-accent-light), var(--clr-gold));
+      border-radius: 2px;
+      margin: 1.5rem auto;
+    }
+
+    .logo-link {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+    }
+
+    .logo-link img {
+      height: 36px;
+      width: auto;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+
+    .logo-link img:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <a href="/" class="logo-link" aria-label="Shilpvatika home">
+    <img src="/images/logo-shilpvatika.png" alt="Shilpvatika">
+  </a>
+
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <div class="divider"></div>
+    <p class="error-message">
+      The page you're looking for doesn't exist or may have been moved.
+      Let's get you back to our showcase of premium woodwork and interior design.
+    </p>
+    <div class="error-actions">
+      <a href="/" class="btn btn-primary">&#8592; Back to Home</a>
+      <a href="/design-ideas.html" class="btn btn-secondary">Browse Designs</a>
+    </div>
+  </div>
+</body>
+</html>
