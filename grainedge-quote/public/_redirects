@@ -2,4 +2,5 @@
 /q/*    /.netlify/functions/serve-quote  200
 /success/*  /index.html  200
 /admin      /index.html  200
+/courses/*  /           301
 /*          /404.html    404

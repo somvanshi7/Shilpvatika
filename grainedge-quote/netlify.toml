@@ -32,6 +32,12 @@
   to = "/index.html"
   status = 200
 
+# Legacy WordPress URL cleanup — redirect to homepage
+[[redirects]]
+  from = "/courses/*"
+  to = "/"
+  status = 301
+
 # Custom 404 — all other unknown URLs get a proper 404 page
 [[redirects]]
   from = "/*"
